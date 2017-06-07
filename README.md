@@ -28,6 +28,10 @@ There are some configurable environmental variables that will set some riak sett
 
     Name of riak node to connect to. Used when computing `RIAK_NODE`. Ignored if `RIAK_NODE` is specifed.
 
+*  **`RIAK_IFACE`** (default: `eth0`)
+
+    `RIAK_IFACE` is used to find the device that the `IP_ADDRESS` is pulled from, see `RIAK_NODE`.
+
 *  **`RIAK_NODE`** (default: `${RIAK_NODE_NAME}@${IP_ADDRESS}`)
 
     Address of a riak node
@@ -35,8 +39,8 @@ There are some configurable environmental variables that will set some riak sett
     ```bash
     clusters.default.riak_node = ${RIAK_NODE}
     ```
-    
-    `IP_ADDRESS` is set to `ip -o -4 addr list eth0 | awk '{print $4}' | cut -d/ -f1)`.
+
+    `IP_ADDRESS` is set to `ip -o -4 addr list $RIAK_IFACE | awk '{print $4}' | cut -d/ -f1)`.
 
 *  **`RIAK_EXPLORER_USER_CONFIG`** (default: `/riak_explorer/etc/user.conf`)
 
