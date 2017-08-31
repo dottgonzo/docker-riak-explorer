@@ -17,6 +17,8 @@ echo "platform_log_dir = ${RIAK_EXPLORER_LOGS}" | tee -a ${RIAK_EXPLORER_CONFIG}
 echo "clusters.default.riak_node = ${RIAK_NODE}" | tee -a ${RIAK_EXPLORER_CONFIG}
 #echo "log.syslog = on" | tee -a ${RIAK_EXPLORER_CONFIG}
 
+echo $RIAK_NODE > /tmp/rr
+
 if [ -s $RIAK_EXPLORER_USER_CONFIG ]; then
     cat $RIAK_EXPLORER_USER_CONFIG | tee -a ${RIAK_EXPLORER_CONFIG}
 fi
